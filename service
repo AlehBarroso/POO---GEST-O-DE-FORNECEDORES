@@ -1,0 +1,17 @@
+package com.fornecedores.fornecedor.service;
+
+import com.fornecedores.fornecedor.model.Fornecedor;
+import com.fornecedores.fornecedor.repository.FornecedorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FornecedorService {
+
+    @Autowired
+    private FornecedorRepository fornecedorRepository;
+
+    public Fornecedor getFornecedorById(Long id) {
+        return fornecedorRepository.findById(id).orElse(null);
+    }
+}

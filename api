@@ -1,0 +1,20 @@
+package com.fornecedores.api;
+
+import com.fornecedores.model.Fornecedor;
+import com.fornecedores.service.FornecedorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FornecedorController {
+
+    @Autowired
+    private FornecedorService fornecedorService;
+
+    @GetMapping("/fornecedores/{id}")
+    public Fornecedor getFornecedorById(@PathVariable Long id) {
+        return fornecedorService.getFornecedorById(id);
+    }
+}
